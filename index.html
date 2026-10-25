@@ -19,6 +19,13 @@
       src="https://cdn.jsdelivr.net/npm/tinymce@6/tinymce.min.js"
       referrerpolicy="origin"
     ></script>
+    <style>
+      /* TIÊU DIỆT TRIỆT ĐỂ NÚT UPGRADE VÀ LOGO TINY */
+      .tox-promotion,
+      .tox-statusbar__branding {
+        display: none !important;
+      }
+    </style>
   </head>
   <body class="bg-gray-50 min-h-screen p-4 md:p-8">
     <div
@@ -42,7 +49,7 @@
           <div class="flex justify-between items-center mb-2">
             <label class="text-gray-700 font-semibold">
               <i class="fa-solid fa-pen-nib text-blue-600 mr-1"></i> Soạn thảo
-              nội dung (Thao tác hệt như Word / Outlook):
+              nội dung:
             </label>
             <button
               id="btn-clear"
@@ -56,8 +63,8 @@
           </div>
           <!-- Textarea sẽ được TinyMCE biến hóa thành Editor cao cấp -->
           <textarea id="my-editor">
-                    <p style="font-family: Arial; font-size: 15px;">Xin chào mentor, đây là nội dung email mẫu...</p>
-                </textarea
+                <p style="font-family: Arial; font-size: 15px;">Xin chào mentor, đây là nội dung email mẫu...</p>
+            </textarea
           >
         </div>
         <!-- Nút Convert -->
@@ -138,6 +145,13 @@
         toolbar:
           "undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen preview print | insertfile image media link table",
         toolbar_sticky: true,
+
+        // --- CẤU HÌNH GIỮ NGUYÊN ĐỊNH DẠNG KHI PASTE TỪ OUTLOOK/WORD ---
+        paste_as_text: false,
+        paste_retain_style_properties: "all",
+        paste_webkit_styles: "all",
+        paste_merge_formats: true,
+
         // Hỗ trợ kéo thả / paste ảnh trực tiếp từ máy tính và tự động convert sang Base64
         automatic_uploads: true,
         file_picker_types: "image",
